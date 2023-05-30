@@ -50,6 +50,8 @@ void moj_broj() {
                 odabir1 = broj4;
             } else if (x == 5) {
                 odabir1 = broj5;
+            } else if(x==0) {
+                odabir1=0;
             }
 
             if (y == 1) {
@@ -62,6 +64,8 @@ void moj_broj() {
                 odabir2 = broj4;
             } else if (y == 5) {
                 odabir2 = broj5;
+            } else if(y==0) {
+                odabir2=0;
             }
 
             printf("%d %d\n", odabir1, odabir2);
