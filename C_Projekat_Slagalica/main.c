@@ -18,7 +18,10 @@ Version 1.0
 #define MAX_LEN 128
 
 void print_slagalice(FILE *fptr);
-
+void print_skocko(FILE *fptr);
+void print_mojBroj(FILE *fptr);
+void print_spojnice(FILE *fptr);
+void print_slagalica(FILE *fptr);
 
 int main() {
 
@@ -38,8 +41,28 @@ int main() {
 	scanf("%d", &izaberi_igra);
 
 	if(izaberi_igra==1) {
-		printf("U izradi");
+		char *filename = "./skocko/skocko.txt";
+		FILE *fptr = NULL;
+		if((fptr = fopen(filename,"r")) == NULL) { 
+			fprintf(stderr,"error opening %s \n",filename);
+			return 1;
+
+		}
+
+		print_skocko(fptr);
+		fclose(fptr);
+		skocko();
 	} else if(izaberi_igra==2){ 
+		char *filename = "./moj_broj/moj_broj.txt";
+		FILE *fptr = NULL;
+		if((fptr = fopen(filename,"r")) == NULL) { 
+			fprintf(stderr,"error opening %s \n",filename);
+			return 1;
+
+		}
+
+		print_skocko(fptr);
+		fclose(fptr);
 		moj_broj();
 	} else if(izaberi_igra==3){
 		printf("U izradi");
@@ -53,6 +76,22 @@ int main() {
 }
 
 void print_slagalice(FILE *fptr) {
+	char read_string[MAX_LEN];
+	
+	while(fgets(read_string,sizeof(read_string),fptr)!=NULL) {
+		printf("%s", read_string);
+	}
+}
+
+void print_skocko(FILE *fptr) {
+	char read_string[MAX_LEN];
+	
+	while(fgets(read_string,sizeof(read_string),fptr)!=NULL) {
+		printf("%s", read_string);
+	}
+}
+
+void print_mojBroj(FILE *fptr) {
 	char read_string[MAX_LEN];
 	
 	while(fgets(read_string,sizeof(read_string),fptr)!=NULL) {
